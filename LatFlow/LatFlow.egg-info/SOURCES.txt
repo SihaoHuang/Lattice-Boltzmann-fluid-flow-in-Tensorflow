@@ -1,0 +1,4 @@
+LatFlow.egg-info/PKG-INFO
+LatFlow.egg-info/SOURCES.txt
+LatFlow.egg-info/dependency_links.txt
+LatFlow.egg-info/top_level.txt

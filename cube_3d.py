@@ -10,7 +10,7 @@ import LatFlow.Domain as dom
 from   LatFlow.utils  import *
 
 # video init
-fourcc = cv2.cv.CV_FOURCC('m', 'p', '4', 'v') 
+fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v') 
 video = cv2.VideoWriter()
 
 shape = [128, 128, 512]

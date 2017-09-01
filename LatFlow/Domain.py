@@ -71,7 +71,7 @@ class Domain():
     self.Rho     = []
     self.IsSolid = []
   
-    for i in xrange(len(nu)):
+    for i in range(len(nu)):
       self.tau.append(     3.0*nu[i]*self.dt/(self.dx*self.dx)+0.5)
       self.G.append(       0.0)
       self.Gs.append(      0.0)
@@ -85,8 +85,8 @@ class Domain():
       self.IsSolid.append( tf.Variable(np.zeros([1] + Ndim + [1], dtype=np.float32)))
 
     self.EEk = tf.zeros(self.Dim*[1] + [self.Nneigh])
-    for n in xrange(3):
-      for m in xrange(3):
+    for n in range(3):
+      for m in range(3):
         if self.Dim == 2:
           self.EEk = self.EEk + tf.abs(self.C[:,:,:,n] * self.C[:,:,:,m])
         elif self.Dim == 3:
@@ -225,7 +225,7 @@ class Domain():
     sess.run(assign_step)
     sess.run(initialize_step)
     num_steps = int(Tf/self.dt)
-    for i in tqdm(xrange(num_steps)):
+    for i in tqdm(range(num_steps)):
       if int(self.time/save_interval) > int((self.time-self.dt)/save_interval):
         save_step(self, sess)
       sess.run(setup_step) 
@@ -237,7 +237,7 @@ class Domain():
     # run solver
     self.F[0] = start_f
     F_return_state = []
-    for i in xrange(num_steps):
+    for i in range(num_steps):
       setup_computation(self)
       self.CollideSC(graph_unroll=True)
       self.StreamSC(graph_unroll=True)

@@ -10,7 +10,7 @@ import LatFlow.Domain as dom
 from   LatFlow.utils  import *
 
 # video init
-fourcc = cv2.cv.CV_FOURCC('m', 'p', '4', 'v') 
+fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v') 
 video = cv2.VideoWriter()
 
 shape = [300, 3000]
@@ -49,7 +49,7 @@ def car_init_step(domain, value=0.08):
 def car_setup_step(domain, value=0.001):
   u = np.zeros((1,shape[0],1,1))
   l = shape[0] - 2
-  for i in xrange(shape[0]):
+  for i in range(shape[0]):
     yp = i - 1.5
     vx = value*4.0/(l*l)*(l*yp - yp*yp)
     u[0,i,0,0] = vx
