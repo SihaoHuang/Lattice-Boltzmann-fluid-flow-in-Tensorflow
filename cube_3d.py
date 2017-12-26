@@ -11,6 +11,7 @@ from   LatFlow.utils  import *
 
 # video init
 fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v') 
+#fourcc = cv2.cv.CV_FOURCC('m', 'p', '4', 'v') 
 video = cv2.VideoWriter()
 
 shape = [128, 128, 512]
@@ -42,8 +43,8 @@ def cube_init_step(domain, value=0.04):
 
 def cube_setup_step(domain, value=0.004):
   u = np.zeros((1,shape[0],shape[1],1,1))
-  for i in xrange(shape[0]):
-    for j in xrange(shape[1]):
+  for i in range(shape[0]):
+    for j in range(shape[1]):
       u[0,i,j,0] = value
   u = u.astype(np.float32)
   u = tf.constant(u)
